@@ -1,0 +1,330 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019-2020 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Please visit https://github.com/PandaScience/FortySecondsCV for the most
+% recent version! For bugs or feature requests, please open a new issue on
+% github.
+%
+% Contributors
+% ------------
+% * ifokkema
+% * Bertbk
+% * Hespe
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+	a4paper,
+	% showframes,
+	% vline=2.2em,
+	% maincolor=cvgreen,
+	% sidecolor=gray!50,
+	% sectioncolor=red,
+	% subsectioncolor=orange,
+	% itemtextcolor=black!80,
+	% sidebarwidth=0.4\paperwidth,
+	% topbottommargin=0.03\paperheight,
+	% leftrightmargin=20pt,
+	% profilepicsize=4.5cm,
+	% profilepicborderwidth=3.5pt,
+	% profilepicstyle=profilecircle,
+	% profilepiczoom=1.0,
+	% profilepicxshift=0mm,
+	% profilepicyshift=0mm,
+	% profilepicrounding=1.0cm,
+]{fortysecondscv}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+% uncomment in case you don't want any hyphenation
+% \usepackage[none]{hyphenat}
+
+% take care of proper font encoding
+\ifxetexorluatex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+%	\newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+%	\usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+	% default font size is \large, so adjust to harmonize with sidebar layout
+	bubble center node font = \footnotesize,
+	bubble node font = \footnotesize,
+	% default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+	bubble center node size = 0.4\sidebartextwidth,
+	bubble node size = 0.25\sidebartextwidth,
+	distance center/other bubbles = 1.5em,
+	% set center bubble color
+	bubble center node color = maincolor!70,
+	% define the list of colors usable in the diagram
+	set color list = {maincolor!10, maincolor!40,
+	maincolor!20, maincolor!60, maincolor!35},
+	% sets the opacity at which the bubbles are shown
+	bubble fill opacity = 0.8,
+}
+
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+%% mandatory information
+% your name
+\cvname{Eneas S. Junior}
+% job title/career
+\cvjobtitle{Data Scientist | \\[0.2em] Machine Learning Engineer}
+
+%% optional information
+% profile picture
+% \cvprofilepic{pics/profile.png}
+
+% NOTE: ordering in sidebar will mimic the following order
+% date of birth
+\cvbirthday{December 12, 1984}
+% short address/location, use \newline if more than 1 line is required
+\cvaddress{Santo André, São Paulo}
+% phone number
+\cvphone{+55 11 97501-7567}
+% personal website
+% \cvsite{https://pandascience.net}
+% email address
+\cvmail{eneas.rodrigues25@gmail.com}
+% pgp key
+% \cvkey{4096R/FF00FF00}{0xAABBCCDDFF00FF00}
+% any other custom entry
+% \cvcustomdata{\faFlag}{Portuguese/English}
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/}}
+
+	% social network accounts incl. proper hyperlinks
+	\profilesection{Social Network}
+		\begin{icontable}{2.5em}{1em}
+			\social{\Large\faIcon{linkedin}}
+				{https://www.linkedin.com/in/eneas-rodrigues-júnior-17100943}
+				{Linkedin Eneas Profile}
+			\social{\faGithub}
+				{https://www.github.com/EneasJr-Rodrigues}
+				{Github Eneas Profile}
+			\social{\faFacebook}
+    			{https://www.facebook.com/ersousaj}
+    			{Facebook Eneas Profiles}
+		\end{icontable}
+
+	\profilesection{Languages}
+	\pointskill{\flag{GB.png}}{English}{4}
+	\pointskill{\flag{flag-spain-400.png}}{Spain}{2}
+
+	\profilesection{Hard Skills}
+		\pointskill{\faBalanceScale}{Pyspark, Pandas}{4}
+		\pointskill{\faSitemap}{Python, C# Sharp}{4}
+		\pointskill{\faGraduationCap}{Asp.Net, Bootstrap}{4}
+
+	\profilesection{Soft Skills}
+		\pointskill{\faTrophy}{Tenical Programing}{4}[4]
+		\pointskill{\faBook}{Data Analyze}{4}[4]
+		\pointskill{\faBook}{Leadership}{4}[4]
+		\pointskill{\faGraduationCap}{Statistical Analysis}{4}[4]
+		
+	\profilesection{Skills Overview}
+
+	\begin{figure}\centering
+		\smartdiagram[bubble diagram]{
+			\textcolor{white}{\textbf{Machine Learning}} \\
+			\textcolor{white}{\textbf{Engineer}}, % center bubble
+			\textcolor{black!90}{~~~Data~~~}\\{Engineer},
+			\textcolor{black!90}{Artificial}\\{Intelligence},
+			\textcolor{black!90}{PySpark},
+			\textcolor{black!90}{~~Google~~}\\{~~Cloud~~},
+			\textcolor{black!90}{Data}\\{Scientist},
+			\textcolor{black!90}{Pandas}\\{sklearning},
+			\textcolor{black!90}{Hadoop}
+		}
+	\end{figure}		
+		
+}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+\addtobacksidebar{
+	\profilesection{About Me}
+	\aboutme{
+		Business Intelligence Consultant + 9 years of experience, design, programming and development.
+        Experience with design of Data Warehouse and design of business intelligence star schema
+        Experience of database administrator (SQL Server Microsoft) - jobs, performance queries and table and monitoring virtual machine procedures (cloud MS-azure).
+        Experience of data scientist with natural language procedure (NLP), distributed system of spark and hadoop for big data procedure.
+        Experience of data visualization power bi microsoft and key performance indicators.
+        Experience in leading team projects.
+        Experience on text-processing PySpark jobs for multiple client pipelines on a lakehouse architecture
+        Experience of implementation a Highly Avaliable infrastructure to Speech-to-Text and text-processing project using GCP (Dataproc, R-MIG, Computer Engine, Firebase, Cloud Function, Build and Run).
+        Support and development of machine learning models for multiple text-processing pipelines for different client on a lakehouse architecture.        
+	}
+
+%	\profilesection{Skills Overview}
+%	\begin{sidebarminipage}
+%		\chartlabel{Machine Learning Engineer}
+%		\chartlabel{Data Engineer}
+%		\chartlabel{Artificial Intelligence}
+%		\chartlabel{proper}
+%		\chartlabel{overflow}
+%		\chartlabel{protection}
+%		\chartlabel{for}
+%		\chartlabel{labels}
+%	\end{sidebarminipage}
+
+%	\begin{figure}\centering
+%		\smartdiagram[bubble diagram]{
+%			\textcolor{white}{\textbf{Being a}} \\
+%			\textcolor{white}{\textbf{Panda}}, % center bubble
+%			\textcolor{black!90}{Eating},
+%			\textcolor{black!90}{Sleeping},
+%			\textcolor{black!90}{Rolling},
+%			\textcolor{black!90}{Playing},
+%			\textcolor{black!90}{Chilling}
+%		}
+%	\end{figure}
+
+%	\chartlabel{Wheel Chart}
+
+%	\wheelchart{3.7em}{2em}{%
+%	20/3em/maincolor!50/Chill,
+%	15/3em/maincolor!15/Play,
+%	30/4em/maincolor!40/Sleep,
+%	20/3em/maincolor!20/Eat
+%	}
+
+	\profilesection{Programming}
+	\barskill{\faSkyatlas}{Python $\textbullet$ Pandas $\textbullet$ Numpy}{90}
+	\barskill{\faBook}{Sklearn $\textbullet$ Keras $\textbullet$ Tensorflow}{80}
+	\barskill{\faBook}{Data Wrangling $\textbullet$ ML Pipelines $\textbullet$ ML Modelling}{90}
+	\barskill{\faSkyatlas}{Docker $\textbullet$ SQL-NoSQL $\textbullet$ Airflow}{90}
+	\barskill{\faSkyatlas}{PySpark $\textbullet$ Hadoop $\textbullet$ Airflow}{90}
+	\barskill{\faBook}{GCP $\textbullet$ Firebase $\textbullet$ Dataproc}{90}
+	\barskill{\faBook}{Git $\textbullet$ Firebase $\textbullet$ Linux}{100}
+
+}
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+
+\cvsection{Working Experience}
+\begin{cvtable}[3]
+	\cvitem{Ago 2019 - Currently}{Data Scientist | Machine Learning Engineer}{Myra Consulting/Mutant}
+    	{$\textbullet$ Creation of text-processing PySpark jobs for multiple client pipelines on a lakehouse architecture
+	    $\textbullet$ Design and implementation of a Highly Avaliable infrastructure of a Speech-to-Text and text-processing project using GCP (Dataproc, R-MIG, Computer Engine, Firebase, Cloud Function, Build and Run).
+	    $\textbullet$ Support and development of machine learning models for multiple text-processing pipelines for different client on a lakehouse architecture.
+	    $\textbullet$ Working using Natural Language Processing, Analysis and Statistics insights of business.}
+	\cvitem{June 2018 - Ago 2019}{Business Intelligence Coordinator}{Myra Consulting/Mutant}
+	    {$\textbullet$ Design of data warehouse MS-Sql Server, Build Model of Star Schema from Business Intelligence (table fat and table dimensions)
+	    $\textbullet$ Design of ETL (MS-SSIS Integration Service) for data flow.
+	    $\textbullet$ Database Administration MS Windows Server 2016 (cloud azure), Monitoring virtual machine performance, monitoring hardware (CPU,Memory, HD (space and process)) with zabbix, queries performance, design of backup database. build Sql Server Agent from SSIS and T-SQL.
+	    $\textbullet$ Design the best practices of data management (normalize date (string, int, date, etc), tables nomenclatures, views, procedures, triggers, functions)}
+	\cvitem{Jun 2014 - Jun 2018}{Senior Business Intelligence Analyst}{Atento Brasil S/A}
+    	{$\textbullet$ Business Intelligence Senior Analyst with 4 years experience in Views e Procedures design and Triggers in SQL SERVER for dashboards.
+    	$\textbullet$ Design of ETL procedure in the Integration Services SSIS to load data bases and design of Batch .bat to optimize unavailable resources in ETL (SSIS).
+    	$\textbullet$ Generation of Excel reports and VBA language.
+    	$\textbullet$ Design and programming dashboards using (ASP.NET) to better assist the main KPI presentation and CPG reports system.
+    	$\textbullet$ Design of CRM to update jobs.
+    	$\textbullet$ KPI design with Power BI and Qlik Sense to keep up with the system performance.}
+    \cvitem{Oct 2011 - May 2014}{Management Information System}{Afferolab S/A}
+        {$\textbullet$ Business Intelligence Assistent - Creation of multiples reports and solutions of business
+        $\textbullet$ Scripting Programming (VBS) for multiples tasks and automation's process.
+        $\textbullet$ Menagement of databases using sql and multiples consultings.}
+    \cvitem{Jun 2010 - Jan 2011}{Management Information System}{Whirlpool Latin America}
+        {$\textbullet$ Support to the analyst team that kept track of the company complaining KPI, Bussiness Intelligence reports of the call center system using Vba/Access/Excel.}
+    \cvitem{Ago 2008 - May 2010}{Analyst of Management Information System}{Atento Brasil S/A}
+        {$\textbullet$ Support to the analyst team that kept track of the company complaining KPI, Bussiness Intelligence reports of the call center system using Vba/Access/Excel.}    
+\end{cvtable}
+
+\newpage
+\makebacksidebar
+% \newgeometry{
+% 	top=\topbottommargin,
+% 	bottom=\topbottommargin,
+% 	right=\leftrightmargin,
+% 	left=\leftrightmargin
+% }
+
+\cvsection{Education}
+\cvsubsection{Graduation Complete}
+\begin{cvtable}[1.8]
+	\cvitem{2009 -- 2012}{Information Systems}{University of Bandeirantes de São Paulo - UNIBAN}
+    {$\textbullet$ Modeling systems using Object Oriented Analysis and development best practices (UML, XP, Scrum).
+    Build custom application projects (distributed, web and mobile) applying Design Thinking  Propotyping to a real customer and updating existing systems. Integrate and develop web applications with responsive interfaces using W3C standards, semantic web and SEO. Use technologies such as HTML 5, CSS 3, Javascript, AngularJS, JQuery, Bootstrap and Java EE: Servlets, JSPs, JSTL and EL.
+    $\textbullet$ Develop applications using the main tools and programming languages, interacting with standard SQL databases (Oracle)}
+
+    \cvitem{2018 -- 2018}{Student Exchange Program}{Delfin English School in Dublin, Ireland}
+    {$\textbullet$ Students on this English course will be studying the four main skills of the English language – reading, writing, speaking and listening – along with developing their grammar and vocabulary. The focus of all of our General English courses is to develop your communicative abilities and to activate your existing knowledge of English.
+    $\textbullet$ English lessons are generally based on everyday topics and are active, task-based and relevant to daily life. Students have the choice of studying in the morning or the afternoon.}
+\end{cvtable}
+
+
+\cvsubsection{Learning}
+\begin{cvtable}[1.5]
+	\cvitem{2021 -- 2021}{Statistic for Machine Learning with Python}{Udemy Academy}
+		{$\textbullet$ The main concepts and statistical calculations used in Data Science and Machine Learning
+		$\textbullet$ The statistics and probability calculations implemented step-by-step in the Python language
+		$\textbullet$ Perform hypothesis tests with ANOVA, Chi Square, Wilcoxon, Friedman and Nemenyi
+		}
+	\cvitem{2021 -- 2021}{Artificial Neural Networks with Python}{Udemy Academy}
+		{$\textbullet$ Learn step by step all mathematical calculations involving artificial neural networks
+		$\textbullet$ Understand in theory and in practice concepts such as perceptron, activation functions, backpropagation and gradient descent
+		$\textbullet$ Understand how neural networks can be used in record classification tasks
+		}
+	\cvitem{2021 -- 2021}{Deep Learning with tensorflow}{Udemy Academy}
+		{$\textbullet$ Creating images with hallucinogenic effects using Deep Dream
+		$\textbullet$ Automatic text generation with recurring neural networks
+		$\textbullet$ Creating images that never existed before using GANs (generative adversarial networks)
+		$\textbullet$ Transfer of learning to use Machine Learning models already trained by other developers, including implementing the LeNet architecture of convolutional neural networks
+		$\textbullet$}
+
+	\cvitem{2020 -- 2020}{Data Engineer, Big Data and Machine Learning on GCP}{Coursera Certifications}
+		{$\textbullet$ Complete the Coursera Data Engineering Professional Certificate on Google Cloud Plataform}
+\end{cvtable}
+
+
+\cvsection{Complementary Courses}
+\begin{cvtable}[1.5]
+	\cvitem{2018 -- 2018}{SQL 2016 - Business Intelligence}{Faculdade Impacta Tecnologia}
+	{$\textbullet$ Design of ETL with visual studio for data base (txt, csv, excel e outros) and script programming c# to automatize other routines, data backups, design procedures and SQL SERVER jobs.
+	$\textbullet$ SSIS (SQLServer Integration Services), SSAS (SQL Server Analysis Services) e SSRS (SQL Server Reporting Services).The course is focused on tools such as SSIS (SQLServer Integration Services), SSAS (SQL Server Analysis Services) e SSRS (SQL Server Reporting Services).}
+	\cvitem{2018 -- 2018}{Java Complete Course of Certification}{Global Code Certifications}
+	{$\textbullet$ Complete course of Java Academy (Sun Certified Java Programmer). Basic, intermediate and Advanced.
+	$\textbullet$ Certification of Java Programming.}	
+\end{cvtable}
+
+% \cvsignature
+
+\end{document}
